@@ -2,6 +2,7 @@
 title: "Test"
 date: 2020-08-13T06:36:12Z
 draft: true
+summary: "test article!"
 categories: 
   - "hugo"
 tags:
