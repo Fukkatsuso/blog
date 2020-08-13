@@ -1,3 +1,21 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
+theme = "hugo-notepadium"
+
+[markup.highlight]
+codeFences = true
+noClasses = false
+
+[markup.goldmark.renderer]
+unsafe = true 
+
+[params]
+style = "light"
+
+[params.syntax]
+use = "none"
+
+[params.nav]
+showCategories = true
+showTags = true
