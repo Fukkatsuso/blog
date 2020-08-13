@@ -1,5 +1,6 @@
 baseURL = "http://example.org/"
-languageCode = "en-us"
+languageCode = "ja"
+DefaultContentLanguage = "ja"
 title = "My New Hugo Site"
 theme = "hugo-notepadium"
 
