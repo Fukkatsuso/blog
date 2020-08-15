@@ -5,11 +5,6 @@ on:
     branches:
       - master
 
-env:
-  GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
-  GCP_SA_EMAIL: ${{ secrets.GCP_SA_EMAIL }}
-  GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -38,4 +33,4 @@ jobs:
       - name: Deploy to GAE
         uses: GoogleCloudPlatform/github-actions/appengine-deploy@master
         with:
-          project_id: $GCP_PROJECT
+          project_id: ${{ secrets.GCP_PROJECT }}
