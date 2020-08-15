@@ -1,0 +1,42 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
+  GCP_SA_EMAIL: ${{ secrets.GCP_SA_EMAIL }}
+  GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v1
+        with:
+          submodules: true
+      
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.75.0'
+
+      - name: Build
+        run: hugo --minify
+      
+      - name: GCP Authenticate
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '274.0.0'
+          service_account_email: $GCP_SA_EMAIL
+          service_account_key: $GCP_SA_KEY
+
+      - name: Deploy to GAE
+        run: |
+          gcloud app deploy \
+            --project $GCP_PROJECT \
+            --quiet
