@@ -31,12 +31,11 @@ jobs:
       - name: GCP Authenticate
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
-          version: '274.0.0'
-          service_account_email: $GCP_SA_EMAIL
+          version: '290.0.1'
           service_account_key: $GCP_SA_KEY
+          export_default_credentials: true
 
       - name: Deploy to GAE
-        run: |
-          gcloud app deploy \
-            --project $GCP_PROJECT \
-            --quiet
+        uses: GoogleCloudPlatform/github-actions/appengine-deploy@master
+        with:
+          project_id: $GCP_PROJECT
