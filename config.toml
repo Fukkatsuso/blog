@@ -4,6 +4,8 @@ DefaultContentLanguage = "ja"
 title = "復活草のブログ"
 theme = "hugo-notepadium"
 
+enableRobotsTXT = true
+
 googleAnalytics = "UA-162053243-2"
 
 [markup.highlight]
