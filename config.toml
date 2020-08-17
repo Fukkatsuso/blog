@@ -1,7 +1,7 @@
 baseURL = "http://example.org/"
 languageCode = "ja"
 DefaultContentLanguage = "ja"
-title = "My New Hugo Site"
+title = "復活草のブログ"
 theme = "hugo-notepadium"
 
 [markup.highlight]
