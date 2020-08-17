@@ -2,7 +2,11 @@ FROM golang:1.14.4-alpine3.12
 
 RUN apk update && \
     apk --no-cache add \
-        git
+        git \
+        tzdata && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    echo "Asia/Tokyo" > /etc/timezone && \
+    apk del tzdata
 
 RUN mkdir $HOME/src && \
     cd $HOME/src && \

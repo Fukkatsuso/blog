@@ -1,6 +1,6 @@
 ---
 title: "Test"
-date: 2020-08-13T06:36:12Z
+date: 2020-08-13T06:36:12+09:00
 draft: false
 summary: "test article!"
 categories: 
