@@ -7,29 +7,5 @@ automatic_scaling:
   max_idle_instances: 1
 
 handlers:
-- url: /(.*\.css)
-  static_files: public/\1
-  upload: public/(.*\.css)
-
-- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
-  static_files: public/\1
-  upload: public/(.*\.(bmp|gif|ico|jpeg|jpg|png))
-
-- url: /(.*\.xml)
-  static_files: public/\1
-  upload: public/(.*\.xml)
-
-- url: /(.+)/
-  static_files: public/\1/index.html
-  upload: public/(.+)/index.html
-
-- url: /(.+)
-  static_files: public/\1/index.html
-  upload: public/(.+)/index.html
-
-- url: /
-  static_files: public/index.html
-  upload: public/index.html
-
 - url: /.*
   script: auto

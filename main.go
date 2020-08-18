@@ -1,19 +1,17 @@
 package main
 
 import (
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 )
 
-func notFoundHandler(w http.ResponseWriter, r *http.Request) {
-	bytes, err := ioutil.ReadFile("public/404.html")
-	if err != nil {
-		panic(err)
+func staticFileHandler(w http.ResponseWriter, r *http.Request) {
+	if _, err := os.Stat("public/" + r.URL.Path); os.IsNotExist(err) {
+		http.ServeFile(w, r, "public/404.html")
+	} else {
+		http.ServeFile(w, r, "public/"+r.URL.Path)
 	}
-	w.WriteHeader(http.StatusNotFound)
-	w.Write(bytes)
 }
 
 func main() {
@@ -23,7 +21,7 @@ func main() {
 		log.Printf("Defaulting to port %s", port)
 	}
 
-	http.HandleFunc("/", notFoundHandler)
+	http.HandleFunc("/", staticFileHandler)
 
 	log.Printf("Listening on port %s", port)
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
