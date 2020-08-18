@@ -94,5 +94,7 @@ gcloud projects add-iam-policy-binding blog-XXXXXX \
 
 ## 参考
 - [Hugo クイックスタート](https://gohugo.io/getting-started/quick-start/)
+- デザインテーマ
+  - [Hugo Notepadium](https://themes.gohugo.io/hugo-notepadium/)
 - [gcloud リファレンス](https://cloud.google.com/sdk/gcloud/reference?hl=ja)
 - [app.yaml リファレンス](https://cloud.google.com/appengine/docs/standard/go/config/appref?hl=ja)
