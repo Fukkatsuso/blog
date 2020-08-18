@@ -32,5 +32,4 @@ handlers:
   upload: public/index.html
 
 - url: /.*
-  static_files: public/404.html
-  upload: public/404.html
+  script: auto
