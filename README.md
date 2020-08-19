@@ -11,7 +11,7 @@ sudo docker run --rm -it -v `pwd`:/go/src/github.com/Fukkatsuso/blog -p 1313:131
 ## デザインテーマ変更
 例: hugo-notepadium
 ```sh
-sudo docker run --rm -it -v `pwd`:/go/src/github.com/Fukkatsuso/blog -p 1313:1313 hugo \
+sudo docker run --rm -it -v `pwd`:/go/src/github.com/Fukkatsuso/blog hugo \
   git submodule add https://github.com/cntrump/hugo-notepadium.git themes/hugo-notepadium
 ```
 ```toml
@@ -21,12 +21,12 @@ theme = "hugo-notepadium"
 
 ## 記事作成
 ```sh
-sudo docker run --rm -it -v `pwd`:/go/src/github.com/Fukkatsuso/blog -p 1313:1313 hugo \
+sudo docker run --rm -it -v `pwd`:/go/src/github.com/Fukkatsuso/blog hugo \
   hugo new posts/my-first-post.md
 ```
 or
 ```sh
-sudo docker run --rm -it -v `pwd`:/go/src/github.com/Fukkatsuso/blog -p 1313:1313 hugo \
+sudo docker run --rm -it -v `pwd`:/go/src/github.com/Fukkatsuso/blog hugo \
   hugo new posts/my-first-post/index.md
 ```
 
