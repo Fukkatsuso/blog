@@ -1,4 +1,6 @@
 # blog
+[![Deploy](https://github.com/Fukkatsuso/blog/workflows/Deploy/badge.svg)](https://github.com/Fukkatsuso/blog/actions?query=workflow%3ADeploy)
+
 HugoでMarkdownから静的サイトを生成し，GAEでホスティングするブログ
 
 ## Hugoサーバを立ち上げる
