@@ -34,8 +34,9 @@ sudo docker run --rm -it -v `pwd`:/go/src/github.com/Fukkatsuso/blog hugo \
 ### Cloud Shell上での準備
 1. プロジェクト, GAEアプリの作成
 ```sh
-gcloud projects create --name blog
-gcloud config set project blog-XXXXXX
+export PROJECT_ID=blog-XXXXXX
+gcloud projects create --name ${PROJECT_ID}
+gcloud config set project ${PROJECT_ID}
 gcloud app create
 ```
 
@@ -44,48 +45,50 @@ gcloud app create
 gcloud services enable appengine.googleapis.com
 
 gcloud alpha billing accounts list
-gcloud alpha billing projects link blog-XXXXXX --billing-account YYYYYY-ZZZZZZ-AAAAAA
+gcloud alpha billing projects link ${PROJECT_ID} --billing-account YYYYYY-ZZZZZZ-AAAAAA
 gcloud services enable cloudbilling.googleapis.com
 gcloud services enable cloudbuild.googleapis.com
 ```
 
 3. サービスアカウント, サービスアカウントキーの作成
 ```sh
-gcloud iam service-accounts create SA-NAME \
+export SA_NAME=githubactions
+gcloud iam service-accounts create ${SA_NAME} \
   --description="used by GitHub Actions" \
-  --display-name="SA-NAME"
+  --display-name="${SA_NAME}"
 gcloud iam service-accounts list
 
-gcloud iam service-accounts keys create ~/blog/SA-NAME/key.json \
-  --iam-account SA-NAME@blog-XXXXXX.iam.gserviceaccount.com
+export IAM_ACCOUNT=${SA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com
+
+gcloud iam service-accounts keys create ~/${PROJECT_ID}/${SA_NAME}/key.json \
+  --iam-account ${IAM_ACCOUNT}
 ```
 
 4. role付与
 ```sh
-gcloud projects add-iam-policy-binding blog-XXXXXX \
-  --member='serviceAccount:SA-NAME@blog-XXXXXX.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member="serviceAccount:${IAM_ACCOUNT}" \
   --role='roles/compute.storageAdmin'
-gcloud projects add-iam-policy-binding blog-XXXXXX \
-  --member='serviceAccount:SA-NAME@blog-XXXXXX.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member="serviceAccount:${IAM_ACCOUNT}" \
   --role='roles/cloudbuild.builds.editor'
-gcloud projects add-iam-policy-binding blog-XXXXXX \
-  --member='serviceAccount:SA-NAME@blog-XXXXXX.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member="serviceAccount:${IAM_ACCOUNT}" \
   --role='roles/appengine.deployer'
-gcloud projects add-iam-policy-binding blog-XXXXXX \
-  --member='serviceAccount:SA-NAME@blog-XXXXXX.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member="serviceAccount:${IAM_ACCOUNT}" \
   --role='roles/appengine.appAdmin'
-gcloud projects add-iam-policy-binding blog-XXXXXX \
-  --member='serviceAccount:SA-NAME@blog-XXXXXX.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member="serviceAccount:${IAM_ACCOUNT}" \
   --role='roles/cloudbuild.builds.builder'
 ```
 
 ### GitHubのSecrets
 - GCP_PROJECT: プロジェクトID
-- GCP_SA_EMAIL: サービスアカウントemail
 - GCP_SA_KEY: サービスアカウントのJSON鍵をBase64エンコード
   ```sh
   # Cloud Shell
-  openssl base64 -in ~/blog/SA-NAME/key.json
+  openssl base64 -in ~/${PROJECT_ID}/${SA_NAME}/key.json
   ```
 
 ### GitHubへPush
