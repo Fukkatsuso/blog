@@ -1,7 +1,7 @@
 ---
 title: "dotfilesの作成が一段落したのでまとめる"
 date: 2020-09-08T22:20:38+09:00
-draft: true
+draft: false
 summary: "bashやgitの設定，macの初期設定などをまとめた，いわゆるdotfilesを作りました．"
 categories:
   - development
