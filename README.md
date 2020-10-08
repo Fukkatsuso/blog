@@ -79,6 +79,9 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} \
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
   --member="serviceAccount:${IAM_ACCOUNT}" \
   --role='roles/cloudbuild.builds.builder'
+gcloud iam service-accounts add-iam-policy-binding ${PROJECT_ID}@appspot.gserviceaccount.com \
+  --member="serviceAccount:${IAM_ACCOUNT}" \
+  --role='roles/iam.serviceAccountUser'
 ```
 
 ### GitHubのSecrets
