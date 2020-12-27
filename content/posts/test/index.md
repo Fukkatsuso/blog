@@ -10,16 +10,18 @@ tags:
   - "test"
 ---
 
-# Test page
 テスト用投稿
 
 ## avator
-![](avator.png)
+
+![avator](avator.png)
 
 ## link
+
 [portfolio](https://fukkatsuso.github.io/portfolio/)
 
 ## syntax highlight
+
 ```go
 func hello() {
   fmt.Println("hello")
@@ -27,6 +29,7 @@ func hello() {
 ```
 
 ## list
+
 - Japan
   - Tokyo
 - America

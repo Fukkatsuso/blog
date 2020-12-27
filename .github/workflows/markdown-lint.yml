@@ -7,6 +7,7 @@ on:
       - 'main'
     paths:
       - '**.md'
+      - 'lint/markdown/**'
 
 jobs:
   lint:
@@ -19,5 +20,5 @@ jobs:
         uses: avto-dev/markdown-lint@v1
         with:
           # rules: './lint/markdown/rules.js'
-          # config: './lint/markdown/config.yml'
+          config: './lint/markdown/config.json'
           args: '.'
