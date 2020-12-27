@@ -196,11 +196,11 @@ CSSも全く使っておりません．
 package main
 
 import (
-	"net/http"
-	"github.com/Fukkatsuso/oauth-sample/app/lib/twitter"
-	"github.com/gin-contrib/sessions"
-	"github.com/gin-contrib/sessions/cookie"
-	"github.com/gin-gonic/gin"
+  "net/http"
+  "github.com/Fukkatsuso/oauth-sample/app/lib/twitter"
+  "github.com/gin-contrib/sessions"
+  "github.com/gin-contrib/sessions/cookie"
+  "github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -215,10 +215,10 @@ func main() {
 
   // top page
   r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{
-			"title": "OAuth sample app!",
-		})
-	})
+    c.HTML(http.StatusOK, "index.html", gin.H{
+      "title": "OAuth sample app!",
+    })
+  })
 
   // Twitterのアカウント情報等
   r.GET("/twitter", func(c *gin.Context) {
@@ -315,25 +315,25 @@ package twitter
 
 // アカウント情報
 type User struct {
-	ID         string `json:"id_str"`
-	Name       string `json:"name"`
-	ScreenName string `json:"screen_name"`
-	ImageURL   string `json:"profile_image_url_https"`
+  ID         string `json:"id_str"`
+  Name       string `json:"name"`
+  ScreenName string `json:"screen_name"`
+  ImageURL   string `json:"profile_image_url_https"`
 }
 
 // 新規ツイート
 type NewPost struct {
-	Status string `json:"status"`
+  Status string `json:"status"`
 }
 
 // タイムラインのツイート（テキスト）
 type Post struct {
-	Text string `json:"text"`
+  Text string `json:"text"`
 }
 
 // タイムライン
 type UserTimeline struct {
-	Posts []Post
+  Posts []Post
 }
 ```
 
@@ -352,119 +352,119 @@ TWITTER_API_SECRET=fuga
 package twitter
 
 import (
-	"errors"
-	"os"
-	"github.com/gin-contrib/sessions"
-	"github.com/gin-gonic/gin"
-	"github.com/mrjones/oauth"
+  "errors"
+  "os"
+  "github.com/gin-contrib/sessions"
+  "github.com/gin-gonic/gin"
+  "github.com/mrjones/oauth"
 )
 
 const (
-	requestTokenURL = "https://api.twitter.com/oauth/request_token"
-	authenticateURL = "https://api.twitter.com/oauth/authenticate"
-	accessTokenURL  = "https://api.twitter.com/oauth/access_token"
+  requestTokenURL = "https://api.twitter.com/oauth/request_token"
+  authenticateURL = "https://api.twitter.com/oauth/authenticate"
+  accessTokenURL  = "https://api.twitter.com/oauth/access_token"
 )
 
 var (
-	callbackURL    string
-	consumerKey    string
-	consumerSecret string
+  callbackURL    string
+  consumerKey    string
+  consumerSecret string
 )
 
 func init() {
-	callbackURL = os.Getenv("TWITTER_CALLBACK_URL")
-	consumerKey = os.Getenv("TWITTER_API_KEY")
-	consumerSecret = os.Getenv("TWITTER_API_SECRET")
+  callbackURL = os.Getenv("TWITTER_CALLBACK_URL")
+  consumerKey = os.Getenv("TWITTER_API_KEY")
+  consumerSecret = os.Getenv("TWITTER_API_SECRET")
 }
 
 func NewClient() *oauth.Consumer {
-	return oauth.NewConsumer(consumerKey, consumerSecret,
-		oauth.ServiceProvider{
-			RequestTokenUrl:   requestTokenURL,
-			AuthorizeTokenUrl: authenticateURL,
-			AccessTokenUrl:    accessTokenURL,
-		})
+  return oauth.NewConsumer(consumerKey, consumerSecret,
+    oauth.ServiceProvider{
+      RequestTokenUrl:   requestTokenURL,
+      AuthorizeTokenUrl: authenticateURL,
+      AccessTokenUrl:    accessTokenURL,
+    })
 }
 
 func OAuth(c *gin.Context) (string, error) {
-	client := NewClient()
-	// リクエストトークンを取得
-	rToken, loginURL, err := client.GetRequestTokenAndUrl(callbackURL)
-	if err != nil {
-		return "", nil
-	}
+  client := NewClient()
+  // リクエストトークンを取得
+  rToken, loginURL, err := client.GetRequestTokenAndUrl(callbackURL)
+  if err != nil {
+    return "", nil
+  }
 
-	session := sessions.Default(c)
-	session.Set("twitter_request_token", rToken.Token)
-	session.Set("twitter_request_secret", rToken.Secret)
-	session.Save()
+  session := sessions.Default(c)
+  session.Set("twitter_request_token", rToken.Token)
+  session.Set("twitter_request_secret", rToken.Secret)
+  session.Save()
 
-	// アクセス許可画面へリダイレクト
-	return loginURL, nil
+  // アクセス許可画面へリダイレクト
+  return loginURL, nil
 }
 
 func Callback(c *gin.Context) (string, error) {
   // リクエストトークンと認可証明書を取り出す
-	var token, verificationCode string
-	token = c.DefaultQuery("oauth_token", "")
-	verificationCode = c.DefaultQuery("oauth_verifier", "")
-	if token == "" || verificationCode == "" {
-		return "/", errors.New("cannot get oauth_token/oauth_verifier")
-	}
+  var token, verificationCode string
+  token = c.DefaultQuery("oauth_token", "")
+  verificationCode = c.DefaultQuery("oauth_verifier", "")
+  if token == "" || verificationCode == "" {
+    return "/", errors.New("cannot get oauth_token/oauth_verifier")
+  }
 
-	// リクエストトークンの照合
-	session := sessions.Default(c)
-	rt := session.Get("twitter_request_token").(string)
-	if rt == "" {
-		return "/", errors.New("cannot get request token")
-	}
-	if token != rt {
-		return "/", errors.New("request token is not correct")
-	}
-	// 送信するリクエストトークンの準備
-	rs := session.Get("twitter_request_secret").(string)
-	if rs == "" {
-		return "/", errors.New("cannot get request secret")
-	}
-	rToken := oauth.RequestToken{Token: rt, Secret: rs}
+  // リクエストトークンの照合
+  session := sessions.Default(c)
+  rt := session.Get("twitter_request_token").(string)
+  if rt == "" {
+    return "/", errors.New("cannot get request token")
+  }
+  if token != rt {
+    return "/", errors.New("request token is not correct")
+  }
+  // 送信するリクエストトークンの準備
+  rs := session.Get("twitter_request_secret").(string)
+  if rs == "" {
+    return "/", errors.New("cannot get request secret")
+  }
+  rToken := oauth.RequestToken{Token: rt, Secret: rs}
 
-	client := NewClient()
-	// アクセストークンを取得
-	aToken, err := client.AuthorizeToken(&rToken, verificationCode)
-	if err != nil {
-		return "/", err
-	}
-	session.Set("twitter_access_token", aToken.Token)
-	session.Set("twitter_access_secret", aToken.Secret)
-	session.Save()
+  client := NewClient()
+  // アクセストークンを取得
+  aToken, err := client.AuthorizeToken(&rToken, verificationCode)
+  if err != nil {
+    return "/", err
+  }
+  session.Set("twitter_access_token", aToken.Token)
+  session.Set("twitter_access_secret", aToken.Secret)
+  session.Save()
 
-	// リダイレクト
-	return "/twitter", nil
+  // リダイレクト
+  return "/twitter", nil
 }
 
 // セッションからアクセストークンを取り出す
 func GetAccessToken(c *gin.Context) *oauth.AccessToken {
-	session := sessions.Default(c)
-	vat := session.Get("twitter_access_token")
-	vas := session.Get("twitter_access_secret")
-	if vat == nil || vas == nil {
-		return nil
-	}
-	at, as := vat.(string), vas.(string)
-	if at == "" || as == "" {
-		return nil
-	}
-	aToken := oauth.AccessToken{Token: at, Secret: as}
-	return &aToken
+  session := sessions.Default(c)
+  vat := session.Get("twitter_access_token")
+  vas := session.Get("twitter_access_secret")
+  if vat == nil || vas == nil {
+    return nil
+  }
+  at, as := vat.(string), vas.(string)
+  if at == "" || as == "" {
+    return nil
+  }
+  aToken := oauth.AccessToken{Token: at, Secret: as}
+  return &aToken
 }
 
 // セッションからアクセストークンを削除する
 func UnOAuth(c *gin.Context) error {
-	session := sessions.Default(c)
-	session.Delete("twitter_access_token")
-	session.Delete("twitter_access_secret")
-	session.Save()
-	return nil
+  session := sessions.Default(c)
+  session.Delete("twitter_access_token")
+  session.Delete("twitter_access_secret")
+  session.Save()
+  return nil
 }
 ```
 
@@ -476,82 +476,82 @@ func UnOAuth(c *gin.Context) error {
 package twitter
 
 import (
-	"encoding/json"
-	"errors"
-	"github.com/gin-gonic/gin"
-	"github.com/mrjones/oauth"
+  "encoding/json"
+  "errors"
+  "github.com/gin-gonic/gin"
+  "github.com/mrjones/oauth"
 )
 
 const (
-	accountVerifyCredsURL = "https://api.twitter.com/1.1/account/verify_credentials.json"
-	tweetURL              = "https://api.twitter.com/1.1/statuses/update.json"
-	userTimelineURL       = "https://api.twitter.com/1.1/statuses/user_timeline.json"
+  accountVerifyCredsURL = "https://api.twitter.com/1.1/account/verify_credentials.json"
+  tweetURL              = "https://api.twitter.com/1.1/statuses/update.json"
+  userTimelineURL       = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 )
 
 func GetUser(c *gin.Context, token *oauth.AccessToken, user *User) error {
-	client := NewClient()
-	params := map[string]string{}
-	resp, err := client.Get(accountVerifyCredsURL, params, token)
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
+  client := NewClient()
+  params := map[string]string{}
+  resp, err := client.Get(accountVerifyCredsURL, params, token)
+  if err != nil {
+    return err
+  }
+  defer resp.Body.Close()
 
-	if resp.StatusCode >= 500 {
-		return errors.New("twitter is unavailable")
-	}
-	if resp.StatusCode >= 400 {
-		return errors.New("twitter request is invalid")
-	}
+  if resp.StatusCode >= 500 {
+    return errors.New("twitter is unavailable")
+  }
+  if resp.StatusCode >= 400 {
+    return errors.New("twitter request is invalid")
+  }
 
-	err = json.NewDecoder(resp.Body).Decode(user)
-	return err
+  err = json.NewDecoder(resp.Body).Decode(user)
+  return err
 }
 
 func Tweet(c *gin.Context, token *oauth.AccessToken, post *NewPost) error {
-	if len(post.Status) == 0 || len(post.Status) > 140 {
-		return errors.New("status must be 0~140 chars")
-	}
-	client := NewClient()
-	params := map[string]string{
-		"status": post.Status,
-	}
-	resp, err := client.Post(tweetURL, params, token)
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
+  if len(post.Status) == 0 || len(post.Status) > 140 {
+    return errors.New("status must be 0~140 chars")
+  }
+  client := NewClient()
+  params := map[string]string{
+    "status": post.Status,
+  }
+  resp, err := client.Post(tweetURL, params, token)
+  if err != nil {
+    return err
+  }
+  defer resp.Body.Close()
 
-	if resp.StatusCode >= 500 {
-		return errors.New("twitter is unavailable")
-	}
-	if resp.StatusCode >= 400 {
-		return errors.New("twitter request is invalid")
-	}
+  if resp.StatusCode >= 500 {
+    return errors.New("twitter is unavailable")
+  }
+  if resp.StatusCode >= 400 {
+    return errors.New("twitter request is invalid")
+  }
 
-	return nil
+  return nil
 }
 
 func GetUserTimeline(c *gin.Context, token *oauth.AccessToken, id string, tl *UserTimeline) error {
-	client := NewClient()
-	params := map[string]string{
-		"user_id": id,
-	}
-	resp, err := client.Get(userTimelineURL, params, token)
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
+  client := NewClient()
+  params := map[string]string{
+    "user_id": id,
+  }
+  resp, err := client.Get(userTimelineURL, params, token)
+  if err != nil {
+    return err
+  }
+  defer resp.Body.Close()
 
-	if resp.StatusCode >= 500 {
-		return errors.New("twitter is unavailable")
-	}
-	if resp.StatusCode >= 400 {
-		return errors.New("twitter request is invalid")
-	}
+  if resp.StatusCode >= 500 {
+    return errors.New("twitter is unavailable")
+  }
+  if resp.StatusCode >= 400 {
+    return errors.New("twitter request is invalid")
+  }
 
-	err = json.NewDecoder(resp.Body).Decode(&tl.Posts)
-	return err
+  err = json.NewDecoder(resp.Body).Decode(&tl.Posts)
+  return err
 }
 ```
 
