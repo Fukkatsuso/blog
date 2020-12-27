@@ -13,7 +13,9 @@ tags:
 静的サイトジェネレータ**Hugo**と**Google App Engine**を使って，速い・簡単・安いの3拍子揃った(?)技術ブログを作りました．
 
 ## 構成
+
 ブログを作るにあたり，最低限必要な機能の洗い出しから始めました．
+
 - Markdownで編集
 - Git/GitHubで管理
 - シンタックスハイライト
@@ -50,7 +52,9 @@ masterブランチへのプッシュをトリガーに，サイトのビルド�
 シンプルなデザインで，特に記事一覧画面とカテゴリやタグの表示が気に入っています．
 
 ## 工夫点, 苦労した点
+
 ### デプロイ作業
+
 「CUI最高!GUIめんどくさい!」になりつつあるので，プロジェクトの作成からGAEにデプロイするまでの準備を，GCPのコンソールでボタンポチポチせずCloud Shell上でコマンドを叩くだけで完結させることにしました．
 
 ここでは主にGitHub Actionsからのデプロイを許可するための権限周りで苦労しました．
@@ -58,6 +62,7 @@ masterブランチへのプッシュをトリガーに，サイトのビルド�
 gcloudコマンドやCloud IAMのドキュメント，GCP公式のActionsのリポジトリ，エラーメッセージを見れば，どのAPIを有効化したりロールを付与したりすればいいのか理解できるはずなんですが，そもそもどのドキュメントを読めばいいかがわからなかったのが原因です．
 
 参考にしたドキュメントはこちらです．
+
 - [workflowの書き方と必要なロール](https://github.com/GoogleCloudPlatform/github-actions/tree/master/appengine-deploy)
 - [gcloudコマンド](https://cloud.google.com/sdk/gcloud/reference?hl=ja)
 
@@ -66,11 +71,13 @@ gcloudコマンドやCloud IAMのドキュメント，GCP公式のActionsのリ�
 ドキュメント読んで実行してエラー読んで修正を繰り返しただけですが，躓いた方の参考になると嬉しいです．
 
 ### カスタム404ページ
+
 Hugoはビルドを実行すると，生成したサイトの静的ファイルをpublicディレクトリに出力します．ホスティングする際はリクエストに合わせてpublicディレクトリ内のファイルを提供するよう設定すれば良いです．
 
 GAEは静的サイトのハンドラをapp.yamlに記述できますが，ルーティングの正規表現に合致したパスが指すファイルが存在しない場合は即デフォルトの404エラーを返す仕様になっています．
 
 そのため以下のような記述で，ファイルが見つからないパスを自分で書いたアプリケーションに渡し，カスタマイズした404ページを返す処理を実現しようとすることはできません．
+
 ```yaml
 # app.yaml
 handlers:
@@ -96,13 +103,14 @@ handlers:
 
 - url: /
   static_files: public/index.html
-  upload: public/index.html 
+  upload: public/index.html
 
 - url: /.*
   script: auto
 ```
 
 カスタム404ページを返すようにするには，上に書いた処理を自分で実装すれば良いです．Golangでの例:
+
 ```go
 func staticFileHandler(w http.ResponseWriter, r *http.Request) {
 	if _, err := os.Stat("public/" + r.URL.Path); os.IsNotExist(err) {
@@ -127,9 +135,11 @@ func main() {
 	}
 }
 ```
+
 参考: [3. Hugoを使いブログをGAEで管理 - Puliyoブログ](https://blog.puliyo.com/jp/posts/hugo-on-gae-3/)
 
 app.yamlのハンドラはこれだけで十分になります．
+
 ```yaml
 handlers:
 - url: /.*
@@ -141,6 +151,7 @@ handlers:
 [^serve_file]: [net/httpで安全に静的ファイルを返す - Shogo's Blog](https://shogo82148.github.io/blog/2016/04/13/serving-static-files-in-golang/)
 
 ## 今後の改善点
+
 - SNSシェアボタン
 - 関連記事の表示
 
@@ -149,6 +160,7 @@ handlers:
 キャッシングについても調べておきたいところです．
 
 ## 所感
+
 環境構築から1週間ほどでブログのベースを作ることができました．
 ローカルサーバにはホットリロード機能がついているので，編集してセーブすると一瞬でビルドしてくれてページを確認できるのも非常に快適です．
 
