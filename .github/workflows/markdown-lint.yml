@@ -1,0 +1,23 @@
+name: MarkdownLint
+
+on:
+  push:
+    branches-ignore:
+      - 'master'
+      - 'main'
+    paths:
+      - '**.md'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Lint markdown file
+        uses: avto-dev/markdown-lint@v1
+        with:
+          # rules: './lint/markdown/rules.js'
+          # config: './lint/markdown/config.yml'
+          args: '.'

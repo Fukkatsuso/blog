@@ -1,5 +1,6 @@
 # blog
 [![Deploy](https://github.com/Fukkatsuso/blog/workflows/Deploy/badge.svg)](https://github.com/Fukkatsuso/blog/actions?query=workflow%3ADeploy)
+[![MarkdownLint](https://github.com/Fukkatsuso/blog/workflows/MarkdownLint/badge.svg)](https://github.com/Fukkatsuso/blog/actions?query=workflow%3AMarkdownLint)
 
 HugoでMarkdownから静的サイトを生成し，GAEでホスティングするブログ
 
@@ -94,6 +95,7 @@ gcloud iam service-accounts add-iam-policy-binding ${PROJECT_ID}@appspot.gservic
 
 ### GitHubへPush
 - main.goとapp.yamlを忘れずに
+- 公開記事は `draft: false` にする
 - masterブランチへのPushで自動的にGAEへデプロイしてくれる
 
 ## 参考
