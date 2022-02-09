@@ -28,8 +28,8 @@ tags:
 
 以下を公開しています．
 
-- コード: https://github.com/Fukkatsuso/cryptocurrency-trading-bot
-- 管理画面: https://dashboard-qboqrrfuaq-an.a.run.app
+- コード: <https://github.com/Fukkatsuso/cryptocurrency-trading-bot>
+- 管理画面: <https://dashboard-qboqrrfuaq-an.a.run.app>
 
 ### 機能，アーキテクチャ
 
