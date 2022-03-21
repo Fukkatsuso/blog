@@ -3,11 +3,11 @@ name: MarkdownLint
 on:
   push:
     branches-ignore:
-      - 'master'
-      - 'main'
+      - "master"
+      - "main"
     paths:
-      - '**.md'
-      - 'lint/markdown/**'
+      - "**.md"
+      - "lint/markdown/**"
 
 jobs:
   lint:
@@ -19,6 +19,6 @@ jobs:
       - name: Lint markdown file
         uses: avto-dev/markdown-lint@v1
         with:
-          # rules: './lint/markdown/rules.js'
-          config: './lint/markdown/config.json'
-          args: '.'
+          # rules: "./lint/markdown/rules.js"
+          config: "./lint/markdown/config.json"
+          args: "."
