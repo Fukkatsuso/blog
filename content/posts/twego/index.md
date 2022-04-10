@@ -83,9 +83,9 @@ func GetTweetStream(done <-chan struct{}, bearerToken string) <-chan Tweet {
         }
       }
     }
-	}()
+  }()
 
-	return stream
+  return stream
 }
 ```
 
