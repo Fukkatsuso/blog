@@ -3,6 +3,8 @@ title: "Hugo+GAEでブログを作った"
 date: 2020-08-19T09:48:26+09:00
 draft: false
 summary: "静的サイトジェネレータHugoとGoogle App Engineを使って，速い・簡単・安いの3拍子揃った(?)技術ブログを作りました．"
+images:
+  - posts/start-blog/architecture.png
 categories:
   - development
 tags:
