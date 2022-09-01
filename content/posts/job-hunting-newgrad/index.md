@@ -3,6 +3,8 @@ title: "23新卒ソフトウェアエンジニア職の就活を振り返る"
 date: 2022-03-13T23:58:00+09:00
 draft: false
 summary: "23卒のソフトウェアエンジニア職として就活し，内定承諾しました．"
+images:
+  - posts/job-hunting-newgrad/og-image.png
 categories:
   - carrer
 ---

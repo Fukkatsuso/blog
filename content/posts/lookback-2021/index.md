@@ -3,6 +3,8 @@ title: "2021年の振り返りと来年の目標"
 date: 2021-12-31T14:41:23+09:00
 draft: false
 summary: "2021年の目標と活動を振り返り，2022年の目標を立ててみました．"
+images:
+  - posts/lookback-2021/og-image.png
 categories:
   - log
 tags:

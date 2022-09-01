@@ -3,6 +3,8 @@ title: "Golang+GCPで仮想通貨取引botを開発した"
 date: 2022-02-09T18:00:00+09:00
 draft: false
 summary: "長いこと開発していた仮想通貨取引botが一段落したのでブログに書こうと思います．"
+images:
+  - posts/cryptocurrency-trading-bot/og-image.png
 categories:
   - development
 tags:

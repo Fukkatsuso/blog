@@ -3,6 +3,8 @@ title: "「テスト駆動開発」を読んでサンプルコードをGolangで
 date: 2020-12-23T19:40:00+09:00
 draft: false
 summary: "「テスト駆動開発」を読み，書籍中のJavaコードをGolangに置き換えて真似してみました．"
+images:
+  - posts/read-tdd/og-image.png
 categories:
   - book
 tags:
