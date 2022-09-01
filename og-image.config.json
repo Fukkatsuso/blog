@@ -1,0 +1,98 @@
+[
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/aiot-intern-impression/og-image.png",
+    "title": [
+      "株式会社AIoTに",
+      "長期インターンとして参加して",
+      "1ヶ月が経った"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/cloudsql-migration-action/og-image.png",
+    "title": [
+      "GitHub Actionsで",
+      "Cloud SQLのマイグレーションを",
+      "自動化する"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/cryptocurrency-trading-bot/og-image.png",
+    "title": [
+      "Golang+GCPで",
+      "仮想通貨取引botを開発した"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/geeksai-202103/og-image.png",
+    "title": [
+      "技育祭(2021)に参加して得た，",
+      "エンジニア志望の学生に送る",
+      "メッセージ"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/job-hunting-newgrad/og-image.png",
+    "title": [
+      "23新卒ソフトウェアエンジニア職の",
+      "就活を振り返る"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/lookback-2020/og-image.png",
+    "title": [
+      "2020年の振り返りと来年の目標"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/lookback-2021/og-image.png",
+    "title": [
+      "2021年の振り返りと来年の目標"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/oauth1-twitter/og-image.png",
+    "title": [
+      "Oauthに入門して",
+      "Twitterログインを試す"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/read-factfullness/og-image.png",
+    "title": [
+      "「ファクトフルネス」を読んだ"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/read-tdd/og-image.png",
+    "title": [
+      "「テスト駆動開発」を読んで",
+      "サンプルコードをGolangで真似",
+      "してみた"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/start-blog/og-image.png",
+    "title": [
+      "Hugo+GAEでブログを作った"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/start-dotfiles/og-image.png",
+    "title": [
+      "dotfilesの作成が",
+      "一段落したのでまとめる"
+    ]
+  }
+]
