@@ -3,6 +3,8 @@ title: "ツイートをリアルタイム検索してターミナルに流せる
 date: 2022-04-10T17:20:00+09:00
 draft: false
 summary: "Twitterの Filtered stream API を利用して，ツイートをリアルタイムでターミナルに流してくれるCLIを作りました．"
+images:
+  - posts/twego/og-image.png
 categories:
   - development
 tags:
