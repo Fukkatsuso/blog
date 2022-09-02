@@ -19,6 +19,14 @@ jobs:
         with:
           submodules: true
 
+      - name: Create OG-Image
+        run: |
+          docker build -t og-image og-image/
+          docker run --rm \
+            -v `PWD`:/go/src/github.com/Fukkatsuso/blog \
+            -w /go/src/github.com/Fukkatsuso/blog \
+            og-image og-image.config.json
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
