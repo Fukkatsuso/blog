@@ -12,7 +12,7 @@ RUN curl -s https://api.github.com/repos/ookamiinc/kinto/releases/latest \
     | grep "browser_download_url.*zip" \
     | cut -d : -f 2,3 \
     | tr -d '"' \
-    | wget -i - \
+    | wget -qi - \
     && mkdir -p /usr/share/fonts/ \
     && unzip KintoSans.zip Kinto\ Sans/*.ttf -d /usr/share/fonts \
     && chmod 644 /usr/share/fonts/Kinto\ Sans \
