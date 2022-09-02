@@ -94,5 +94,14 @@
       "dotfilesの作成が",
       "一段落したのでまとめる"
     ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
+    "path": "content/posts/twego/og-image.png",
+    "title": [
+      "ツイートをリアルタイム検索して",
+      "ターミナルに流せるCLIツール",
+      "「twego」を開発した"
+    ]
   }
 ]
