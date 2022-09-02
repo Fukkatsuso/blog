@@ -52,7 +52,7 @@ docker-compose run --rm hugo hugo new posts/my-first-post/index.md
 ```sh
 docker build -t og-image og-image/
 docker run --rm \
-  -v `PWD`:/go/src/github.com/Fukkatsuso/blog \
+  -v `pwd`:/go/src/github.com/Fukkatsuso/blog \
   -w /go/src/github.com/Fukkatsuso/blog \
   og-image og-image.config.json
 ```
