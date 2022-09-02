@@ -3,6 +3,8 @@ title: "GitHub ActionsでCloud SQLのマイグレーションを自動化する"
 date: 2021-07-14T23:22:00+09:00
 draft: false
 summary: "GCPのCloud SQLを利用したプロジェクトで，GitHub Actionsとgolang-migrateを使ってDBのマイグレーションを自動化してみました．"
+images:
+  - posts/cloudsql-migration-action/og-image.png
 categories:
   - development
 tags:

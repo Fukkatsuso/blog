@@ -3,6 +3,8 @@ title: "技育祭(2021)に参加して得た，エンジニア志望の学生に
 date: 2021-03-14T18:07:17+09:00
 draft: false
 summary: "2021年3月11日〜13日に開催された技育祭に参加しました．"
+images:
+  - posts/geeksai-202103/og-image.png
 categories:
   - log
 tags:

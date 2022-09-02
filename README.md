@@ -37,6 +37,26 @@ or
 docker-compose run --rm hugo hugo new posts/my-first-post/index.md
 ```
 
+## OGP画像生成
+
+- markdownのfrontmatterに
+
+  ```yml
+  images:
+    - posts/<記事タイトル>/og-image.png
+  ```
+
+  を記入
+- og-image.config.jsonに画像生成のための設定を追記
+
+```sh
+docker build -t og-image og-image/
+docker run --rm \
+  -v `PWD`:/go/src/github.com/Fukkatsuso/blog \
+  -w /go/src/github.com/Fukkatsuso/blog \
+  og-image og-image.config.json
+```
+
 ## GAEへデプロイ
 
 ### Cloud Shell上での準備

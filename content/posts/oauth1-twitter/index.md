@@ -3,6 +3,8 @@ title: "Oauthに入門してTwitterログインを試す"
 date: 2020-10-28T15:49:28+09:00
 draft: false
 summary: "Twitterログイン，アカウント情報取得，ツイート投稿するサンプルアプリを作りました"
+images:
+  - posts/oauth1-twitter/og-image.png
 categories:
   - development
 tags:

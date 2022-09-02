@@ -1,3 +1,4 @@
 .DS_Store
 .vscode/
 public/
+content/posts/*/og-image.png

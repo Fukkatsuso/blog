@@ -3,6 +3,8 @@ title: "2020年の振り返りと来年の目標"
 date: 2020-12-27T14:40:00+09:00
 draft: false
 summary: "プログラミング，研究，進路，インターンについて2020年を振り返り，来年の目標をざっくりと立ててみました．"
+images:
+  - posts/lookback-2020/og-image.png
 categories:
   - log
 tags:
