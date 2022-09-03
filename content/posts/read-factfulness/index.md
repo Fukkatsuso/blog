@@ -3,8 +3,10 @@ title: "「ファクトフルネス」を読んだ"
 date: 2020-10-08T12:18:46+09:00
 draft: false
 summary: "2020年上半期話題の本「ファクトフルネス」を読みました．"
+aliases:
+  - /posts/read-factfullness/
 images:
-  - posts/read-factfullness/og-image.png
+  - posts/read-factfulness/og-image.png
 categories:
   - book
 tags:
