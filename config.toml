@@ -7,7 +7,7 @@ copyright = "© 2020-2022 Fukkatsuso."
 
 enableRobotsTXT = true
 
-googleAnalytics = "UA-162053243-2"
+googleAnalytics = "G-93NZETNBPJ"
 
 [markup.highlight]
 codeFences = true
