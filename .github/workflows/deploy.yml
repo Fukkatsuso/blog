@@ -27,10 +27,15 @@ jobs:
             -w /go/src/github.com/Fukkatsuso/blog \
             og-image og-image.config.json
 
+      - name: Read .env
+        run: |
+          . ./.env
+          echo "HUGO_VERSION=${HUGO_VERSION}" >> $GITHUB_ENV
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.74.3"
+          hugo-version: "${{ env.HUGO_VERSION }}"
 
       - name: Build
         run: hugo --minify
