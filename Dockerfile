@@ -6,9 +6,10 @@ RUN apt-get update && \
     echo "Asia/Tokyo" > /etc/timezone
 
 # install hugo
+ARG HUGO_VERSION
 RUN mkdir $HOME/src && \
     cd $HOME/src && \
-    git clone https://github.com/gohugoio/hugo.git && \
+    git clone https://github.com/gohugoio/hugo.git -b "$HUGO_VERSION" --depth 1 --single-branch && \
     cd hugo && \
     go install
 
