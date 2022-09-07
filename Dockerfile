@@ -8,7 +8,7 @@ RUN apt-get update && \
 # install hugo
 RUN mkdir $HOME/src && \
     cd $HOME/src && \
-    git clone https://github.com/gohugoio/hugo.git && \
+    git clone https://github.com/gohugoio/hugo.git -b v0.74.3 --depth 1 --single-branch && \
     cd hugo && \
     go install
 
