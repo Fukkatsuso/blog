@@ -10,6 +10,14 @@
   },
   {
     "template": "og-image/base.drawio.png",
+    "path": "content/posts/blog-ogp/og-image.png",
+    "title": [
+      "Hugo製ブログのOGP画像を",
+      "GitHub Actionsで自動生成する"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
     "path": "content/posts/cloudsql-migration-action/og-image.png",
     "title": [
       "GitHub Actionsで",
