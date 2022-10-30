@@ -398,8 +398,8 @@ OGPに対応できていますね．
 
 ## 参考
 
-- https://ogp.me
-- https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image
-- https://ladicle.com/post/20200623_164459
-- https://sotaro.io/ja/googp-ja
-- https://miyahara.hikaru.dev/posts/20200319
+- <https://ogp.me>
+- <https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image>
+- [HugoでもTwitterCard画像を自動生成したい](https://ladicle.com/post/20200623_164459)
+- [Go言語でOGP画像を自動生成する](https://sotaro.io/ja/googp-ja)
+- [HugoでOGPの設定をする](https://miyahara.hikaru.dev/posts/20200319)
