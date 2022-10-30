@@ -231,7 +231,7 @@ func main() {
 プログラムは次のように実行します．
 
 ```sh
-$ go run og-image/main.go og-image.config.json
+go run og-image/main.go og-image.config.json
 ```
 
 以上でOGP画像の用意ができるようになりました．
