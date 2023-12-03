@@ -44,6 +44,14 @@
   },
   {
     "template": "og-image/base.drawio.png",
+    "path": "content/posts/isucon13/og-image.png",
+    "title": [
+      "ISUCON13に参加して",
+      "60位（スコア32,592）だった"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
     "path": "content/posts/job-hunting-newgrad/og-image.png",
     "title": [
       "23新卒ソフトウェアエンジニア職の",
