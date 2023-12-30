@@ -3,7 +3,7 @@ languageCode = "ja"
 DefaultContentLanguage = "ja"
 title = "復活草のブログ"
 theme = "hugo-notepadium"
-copyright = "© 2020-2022 Fukkatsuso."
+copyright = "© 2020-2024 Fukkatsuso."
 
 enableRobotsTXT = true
 
@@ -14,7 +14,7 @@ codeFences = true
 noClasses = false
 
 [markup.goldmark.renderer]
-unsafe = true 
+unsafe = true
 
 [params]
 style = "light"
