@@ -1,5 +1,4 @@
-# hugoはgo1.16に対応している模様
-FROM golang:1.16-buster
+FROM golang:1.21-bullseye
 
 RUN apt-get update && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
