@@ -1,11 +1,11 @@
 # blog
 
 [![Deploy](https://github.com/Fukkatsuso/blog/workflows/Deploy/badge.svg)](https://github.com/Fukkatsuso/blog/actions?query=workflow%3ADeploy)
-[![MarkdownLint](https://github.com/Fukkatsuso/blog/workflows/MarkdownLint/badge.svg)](https://github.com/Fukkatsuso/blog/actions?query=workflow%3AMarkdownLint)
+[![Lint](https://github.com/Fukkatsuso/blog/workflows/Lint/badge.svg)](https://github.com/Fukkatsuso/blog/actions?query=workflow%3ALint)
 
-HugoでMarkdownから静的サイトを生成し，GAEでホスティングするブログ
+Hugo で Markdown から静的サイトを生成し、GAE でホスティングするブログ
 
-## Hugoサーバを立ち上げる
+## Hugo サーバを立ち上げる
 
 ```sh
 docker-compose up
@@ -13,7 +13,7 @@ docker-compose up
 
 ## デザインテーマ変更
 
-例: hugo-notepadium
+例：hugo-notepadium
 
 ```sh
 docker-compose run --rm hugo \
@@ -37,31 +37,56 @@ or
 docker-compose run --rm hugo hugo new posts/my-first-post/index.md
 ```
 
-## OGP画像生成
+## OGP 画像生成
 
-- markdownのfrontmatterに
+1. og-image.config.json に画像生成のための設定を追記
 
-  ```yml
-  images:
-    - posts/<記事タイトル>/og-image.png
-  ```
+1. markdown の frontmatter に以下を記入
+  
+    ```yml
+    images:
+      - posts/<記事タイトル>/og-image.png
+    ```
 
-  を記入
-- og-image.config.jsonに画像生成のための設定を追記
+1. ローカルで画像生成を試す場合のコマンド
+
+    ```sh
+    docker build -t og-image og-image/
+    docker run --rm \
+      -v `pwd`:/go/src/github.com/Fukkatsuso/blog \
+      -w /go/src/github.com/Fukkatsuso/blog \
+      og-image og-image.config.json
+    ```
+
+## textlint をかける
+
+必要なツールのインストール
 
 ```sh
-docker build -t og-image og-image/
-docker run --rm \
-  -v `pwd`:/go/src/github.com/Fukkatsuso/blog \
-  -w /go/src/github.com/Fukkatsuso/blog \
-  og-image og-image.config.json
+npm install -g \
+  textlint \
+  textlint-rule-preset-ja-spacing \
+  textlint-rule-preset-jtf-style
 ```
 
-## GAEへデプロイ
+taichi.vscode-textlint（VSCode の拡張機能）をインストールして settings.json に以下を追記
 
-### Cloud Shell上での準備
+```json
+{
+  "textlint.run": "onSave",
+  "textlint.languages": [
+      "markdown"
+  ]
+}
+```
 
-1. プロジェクト, GAEアプリの作成
+これにより、ファイル保存時に自動でチェックしてくれる。
+
+## GAE へデプロイ
+
+### Cloud Shell 上での準備
+
+1. プロジェクト、GAE アプリの作成
 
     ```sh
     export PROJECT_ID=blog-XXXXXX
@@ -70,7 +95,7 @@ docker run --rm \
     gcloud app create
     ```
 
-1. APIを有効化(Cloud Buildのために課金を有効にする)
+1. API を有効化（Cloud Build のために課金を有効にする）
 
     ```sh
     gcloud services enable appengine.googleapis.com
@@ -81,7 +106,7 @@ docker run --rm \
     gcloud services enable cloudbuild.googleapis.com
     ```
 
-1. サービスアカウント, サービスアカウントキーの作成
+1. サービスアカウント、サービスアカウントキーの作成
 
     ```sh
     export SA_NAME=githubactions
@@ -96,7 +121,7 @@ docker run --rm \
       --iam-account ${IAM_ACCOUNT}
     ```
 
-1. role付与
+1. role 付与
 
     ```sh
     gcloud projects add-iam-policy-binding ${PROJECT_ID} \
@@ -119,21 +144,21 @@ docker run --rm \
       --role='roles/iam.serviceAccountUser'
     ```
 
-### GitHubのSecrets
+### GitHub の Secrets
 
-- GCP_PROJECT: プロジェクトID
-- GCP_SA_KEY: サービスアカウントのJSON鍵をBase64エンコード
+- GCP_PROJECT: プロジェクト ID
+- GCP_SA_KEY: サービスアカウントの JSON 鍵を Base64 エンコード
 
     ```sh
     # Cloud Shell
     openssl base64 -in ~/${PROJECT_ID}/${SA_NAME}/key.json
     ```
 
-### GitHubへPush
+### GitHub へ Push
 
-- main.goとapp.yamlを忘れずに
+- main.go と app.yaml を忘れずに
 - 公開記事は `draft: false` にする
-- masterブランチへのPushで自動的にGAEへデプロイしてくれる
+- master ブランチへの Push で自動的に GAE へデプロイしてくれる
 
 ## 参考
 
