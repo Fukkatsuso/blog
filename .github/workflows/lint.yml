@@ -1,0 +1,46 @@
+name: Lint
+
+on:
+  push:
+    branches-ignore:
+      - "master"
+      - "main"
+    paths:
+      - "**.md"
+      - "lint/markdown/**"
+      - ".textlintrc.json"
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Run markdown-lint
+        uses: avto-dev/markdown-lint@v1
+        with:
+          # rules: "./lint/markdown/rules.js"
+          config: "./lint/markdown/config.json"
+          args: "."
+
+  textlint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+
+      - name: Install textlint
+        run: |
+          npm install --save-dev \
+            textlint \
+            textlint-rule-preset-ja-spacing \
+            textlint-rule-preset-jtf-style
+
+      - name: Run textlint
+        run: npx textlint content/**/*.md README.md
+
