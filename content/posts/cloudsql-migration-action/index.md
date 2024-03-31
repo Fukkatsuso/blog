@@ -61,14 +61,14 @@ GitHub Actions では `.github/workflows/migration.yml` に書いたワークフ
 準備として、GCP のサービスアカウントを作成します。
 
 API の有効化とサービスアカウントへの role 付与などが必要ですが、ここでは割愛します。
-Cloud Run と Cloud SQL を使っており、GitHub Actions からマイグレーションを実行するようなプロジェクトにおいてサービスアカウントを作成する方法を[ドキュメント](https://github.com/Fukkatsuso/cryptocurrency-trading-bot/blob/main/doc/gcp_project.md)として書いています。
+Cloud Run と Cloud SQL を使っており、GitHub Actions からマイグレーションを実行するようなプロジェクトにおいてサービスアカウントを作成する方法を [ドキュメント](https://github.com/Fukkatsuso/cryptocurrency-trading-bot/blob/main/doc/gcp_project.md) として書いています。
 こちら参考にしてみてください。
 
 サービスアカウントが作成できたらキー（json ファイル）を手元に保存しておきます。
 キーは外部に公開しないでください。
 
 Cloud SQL インスタンスも立てておく必要があります。
-これも[ドキュメント](https://github.com/Fukkatsuso/cryptocurrency-trading-bot/blob/main/doc/gcp_project.md)に手順を書いています。
+これも [ドキュメント](https://github.com/Fukkatsuso/cryptocurrency-trading-bot/blob/main/doc/gcp_project.md) に手順を書いています。
 
 ## Secrets の設定
 
@@ -159,7 +159,7 @@ main ブランチへの push のみトリガーとするようにしています
 これはプロキシの認証に必要です。
 
 次に Cloud SQL Proxy の公式の Docker イメージを pull し、`docker run` で起動します。
-このコマンドは [GCP のドキュメント](https://cloud.google.com/sql/docs/postgres/connect-admin-proxy#connecting-docker)にほとんどそのまま書いてあります。
+このコマンドは [GCP のドキュメント](https://cloud.google.com/sql/docs/postgres/connect-admin-proxy#connecting-docker) にほとんどそのまま書いてあります。
 
 書き方がわかればこんなもんですが、サービスアカウントキーをシングルクオートで囲っておかないと、`echo` コマンドでリダイレクトする際に失敗してしまうという罠がありました。
 
@@ -174,7 +174,7 @@ main ブランチへの push のみトリガーとするようにしています
     sudo apt-get install -y migrate
 ```
 
-ジョブは Ubuntu で動かしているので [Linux 向けのインストール方法](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate#linux-deb-package)をもとに記述しています。
+ジョブは Ubuntu で動かしているので [Linux 向けのインストール方法](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate#linux-deb-package) をもとに記述しています。
 
 これも、パイプラインやリダイレクトの権限周りでエラーが起き、`sudo` を付けたり `tee` コマンドに置き換えたりする必要がありました。
 

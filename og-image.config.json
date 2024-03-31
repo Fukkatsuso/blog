@@ -97,6 +97,13 @@
   },
   {
     "template": "og-image/base.drawio.png",
+    "path": "content/posts/read-cpus-for-programmers/og-image.png",
+    "title": [
+      "「プログラマーのための CPU 入門」を読んだ"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
     "path": "content/posts/read-factfulness/og-image.png",
     "title": [
       "「ファクトフルネス」を読んだ"
