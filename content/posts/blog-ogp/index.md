@@ -24,7 +24,7 @@ tags:
 - 記事 HTML のメタデータに OGP の設定を追加
   - Twitter の OGP にも対応する
 
-後者については [OGP の公式サイト](https://ogp.me)や [Twitter の OGP リファレンス](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image)に大体のことが書かれています。
+後者については [OGP の公式サイト](https://ogp.me) や [Twitter の OGP リファレンス](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) に大体のことが書かれています。
 今回は、以下のプロパティを HTML の `<head>` 内の `<meta>` タグとして配置する方針で行います。
 
 | property            | 必須 | 意味・記入するもの    |
@@ -70,7 +70,7 @@ OGP 画像を生成する流れは次の通りです。
 画像生成プログラムは Go 言語で書きました。
 
 フォントは [Kinto](https://github.com/ookamiinc/kinto) を使用させていただきました。
-当初の予定では `Noto Sans JP` を使う予定だったのですが、[Go の画像処理ライブラリ](https://github.com/fogleman/gg)が TrueType のフォントにしか対応していない状況で、`Noto Sans JP` の ttf ファイルを取得することができなかったため、`Noto Sans JP` に近い他のフォントを選択したという経緯です。
+当初の予定では `Noto Sans JP` を使う予定だったのですが、[Go の画像処理ライブラリ](https://github.com/fogleman/gg) が TrueType のフォントにしか対応していない状況で、`Noto Sans JP` の ttf ファイルを取得することができなかったため、`Noto Sans JP` に近い他のフォントを選択したという経緯です。
 
 画像生成に関する Go プログラムを以下に載せておきます。
 
@@ -226,7 +226,7 @@ func main() {
 }
 ```
 
-プログラム全体は[こちら](https://github.com/Fukkatsuso/blog/blob/master/og-image/main.go)です。
+プログラム全体は [こちら](https://github.com/Fukkatsuso/blog/blob/master/og-image/main.go) です。
 
 プログラムは次のように実行します。
 

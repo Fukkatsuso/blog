@@ -78,7 +78,7 @@ Go の Web フレームワークにも入門してみたかったので Gin を�
 
 ### ファイル構成
 
-コードは[GitHub](https://github.com/Fukkatsuso/oauth-sample)に上げています。
+コードは [GitHub](https://github.com/Fukkatsuso/oauth-sample) に上げています。
 
 ```sh
 .

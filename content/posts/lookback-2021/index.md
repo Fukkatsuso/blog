@@ -26,7 +26,7 @@ tags:
 
 ### 新規に Web アプリを開発する
 
-Web アプリと言えるかは微妙なところですが、個人で[仮想通貨の自動取引 bot](https://github.com/Fukkatsuso/cryptocurrency-trading-bot)を開発しました。
+Web アプリと言えるかは微妙なところですが、個人で [仮想通貨の自動取引 bot](https://github.com/Fukkatsuso/cryptocurrency-trading-bot) を開発しました。
 
 昨年少し勉強した GCP やテストの経験を活用して、開発しやすいプロダクトを作ることを目標に、CI/CD やドキュメント整備などに力を入れて作っていきました。
 
@@ -74,8 +74,8 @@ PC でも読めて省スペースなところが最高ですね。
 
 今年個人で取り組んだのはこれらになります。
 
-- [仮想通貨取引 bot](https://github.com/Fukkatsuso/cryptocurrency-trading-bot)の開発
-- [メシガイド（飲食店検索 LINE bot）](https://github.com/Fukkatsuso/linebot-restaurant-go)の改善
+- [仮想通貨取引 bot](https://github.com/Fukkatsuso/cryptocurrency-trading-bot) の開発
+- [メシガイド（飲食店検索 LINE bot）](https://github.com/Fukkatsuso/linebot-restaurant-go) の改善
 
 今年は 4 分の 3 くらい仮想通貨取引 bot の開発に費やしました。
 予定よりずっと時間がかかってしまいましたが、実現したいことは概ねできているので OK です。
@@ -146,7 +146,7 @@ main ブランチに反映していない分を考慮しても大体 900 です�
 - フロントエンドの技術も触ってみる
   - React, Next.js がスタンダードっぽい雰囲気
 - イーサリアムについて知る
-  - [この本](https://www.amazon.co.jp/dp/4873118964)とか読んでみたい
+  - [この本](https://www.amazon.co.jp/dp/4873118964) とか読んでみたい
 
 「大学院修了と就職に向けて収束させていく」と言った割に多方面に手を伸ばす感じになりましたが、新しい知識の吸収は積極的にやっていきたいです。
 
