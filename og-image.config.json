@@ -111,6 +111,15 @@
   },
   {
     "template": "og-image/base.drawio.png",
+    "path": "content/posts/read-go-system-programming/og-image.png",
+    "title": [
+      "「Go ならわかる",
+      "システムプログラミング」",
+      "を読んだ"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
     "path": "content/posts/read-tdd/og-image.png",
     "title": [
       "「テスト駆動開発」を読んで",
