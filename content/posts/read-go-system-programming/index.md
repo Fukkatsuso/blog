@@ -8,6 +8,7 @@ images:
 categories:
   - book
 tags:
+  - golang
 ---
 
 「[Go ならわかるシステムプログラミング](https://www.lambdanote.com/products/go-2)」という本を読みました。
