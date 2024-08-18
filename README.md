@@ -8,7 +8,7 @@ Hugo で Markdown から静的サイトを生成し、GAE でホスティング�
 ## Hugo サーバを立ち上げる
 
 ```sh
-docker-compose up
+docker compose up
 ```
 
 ## デザインテーマ変更
@@ -16,7 +16,7 @@ docker-compose up
 例：hugo-notepadium
 
 ```sh
-docker-compose run --rm hugo \
+docker compose run --rm hugo \
   git submodule add https://github.com/cntrump/hugo-notepadium.git themes/hugo-notepadium
 ```
 
@@ -28,13 +28,13 @@ theme = "hugo-notepadium"
 ## 記事作成
 
 ```sh
-docker-compose run --rm hugo hugo new posts/my-first-post.md
+docker compose run --rm hugo hugo new posts/my-first-post.md
 ```
 
 or
 
 ```sh
-docker-compose run --rm hugo hugo new posts/my-first-post/index.md
+docker compose run --rm hugo hugo new posts/my-first-post/index.md
 ```
 
 ## OGP 画像生成
