@@ -111,6 +111,15 @@
   },
   {
     "template": "og-image/base.drawio.png",
+    "path": "content/posts/read-go-monkey-and-compiler/og-image.png",
+    "title": [
+      "「Go 言語で作るインタプリタ」と",
+      "「Writing a Compiler in Go」",
+      "を読んだ"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
     "path": "content/posts/read-go-system-programming/og-image.png",
     "title": [
       "「Go ならわかる",
