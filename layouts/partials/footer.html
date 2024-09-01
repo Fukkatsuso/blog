@@ -1,8 +1,5 @@
 <section id="footer">
-  {{ $copyright := site.Copyright }}
-  {{ if not $copyright }}
-    {{ $copyright = site.Title | safeHTML }}
-  {{ end }}
+  {{ $copyright := printf "© 2020-%d Fukkatsuso." time.Now.Year }}
   {{ partial "copyright.html" ($copyright | safeHTML) }}
 </section>
 {{ partial "math.html" . }}
