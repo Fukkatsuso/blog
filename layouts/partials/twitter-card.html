@@ -1,14 +1,3 @@
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="{{- .Title -}}" />
-
-{{ $imgurl := "" }}
-{{ if .Params.images }}
-  {{ $imgurl = index .Params.images 0 }}
-{{ end }}
-{{ if gt (len $imgurl) 0 }}
-  {{ $imgurl = lower $imgurl }}
-  {{ if and (not (hasPrefix $imgurl "http://")) (not (hasPrefix $imgurl "https://")) }}
-    {{ $imgurl = print .Site.BaseURL $imgurl }}
-  {{ end }}
-  <meta name="twitter:image" content="{{ $imgurl }}" />
-{{ end }}
+<meta name="twitter:site" content="@fukkatsuso" />
+<meta name="twitter:creator" content="@fukkatsuso" />
