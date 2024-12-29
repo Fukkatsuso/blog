@@ -16,7 +16,7 @@ tags:
 
 GitHub リポジトリ：<https://github.com/Fukkatsuso/twego>
 
-![twego-demo](https://github.com/Fukkatsuso/twego/blob/main/docs/twego-demo.gif?raw=true)
+![twego-demo](twego-demo.gif)
 
 Twitter の [Filtered stream API](https://developer.twitter.com/en/docs/twitter-api/tweets/filtered-stream/introduction) を利用して、ツイートをリアルタイムでターミナルに流してくれる CLI ツールを作りました。
 

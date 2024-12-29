@@ -64,7 +64,7 @@ bitFlyer の API で取引できる最小量は 0.01 となっており、自分
 
 アーキテクチャはこのようになっています。
 
-![architecture](https://github.com/Fukkatsuso/cryptocurrency-trading-bot/blob/main/doc/flow.drawio.png?raw=true)
+![architecture](flow.drawio.png)
 
 Cloud Scheduler からの HTTP リクエストをトリガーにして定期実行します。
 外部からの未知のリクエストを防ぐためプライベートなバックエンドで取引や価格データ取得を担い、管理画面用のフロントエンドと分けて開発しました。
