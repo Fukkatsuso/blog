@@ -4,7 +4,7 @@ date: 2024-12-14T21:30:00+09:00
 draft: false
 summary: "ISUCON14 にチーム「俺らの latestMap」として出場しました。top（CPU 使用率）、pprof/fgprof, alp, pt-query-digest を完全自動収集する計測基盤を作ったので紹介します。"
 images:
-  - posts/isucon14/monitoring_architecture.drawio.svg
+  - posts/isucon14/monitoring_architecture.png
 categories:
   - log
 tags:
