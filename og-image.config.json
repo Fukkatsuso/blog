@@ -136,6 +136,15 @@
   },
   {
     "template": "og-image/base.drawio.png",
+    "path": "content/posts/read-rust-practice-book/og-image.png",
+    "title": [
+      "「Rust の練習帳」で",
+      "Rust に入門して",
+      "難しかったこと"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
     "path": "content/posts/read-tdd/og-image.png",
     "title": [
       "「テスト駆動開発」を読んで",
