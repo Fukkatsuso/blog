@@ -57,47 +57,47 @@ Rust でスレッドを生成する方法 (`std::thread::spawn` や `std::thread
 package main
 
 import (
-	"sync"
-	"sync/atomic"
-	"testing"
+    "sync"
+    "sync/atomic"
+    "testing"
 )
 
 type MutexIDGen struct {
-	mu sync.Mutex
-	id int64
+    mu sync.Mutex
+    id int64
 }
 
 func (g *MutexIDGen) Next() int64 {
-	g.mu.Lock()
-	defer g.mu.Unlock()
-	g.id++
-	return g.id
+    g.mu.Lock()
+    defer g.mu.Unlock()
+    g.id++
+    return g.id
 }
 
 type AtomicIDGen struct {
-	id int64
+    id int64
 }
 
 func (g *AtomicIDGen) Next() int64 {
-	return atomic.AddInt64(&g.id, 1)
+    return atomic.AddInt64(&g.id, 1)
 }
 
 func BenchmarkMutexIDGen(b *testing.B) {
-	gen := &MutexIDGen{}
-	b.RunParallel(func(pb *testing.PB) {
-		for pb.Next() {
-			_ = gen.Next()
-		}
-	})
+    gen := &MutexIDGen{}
+    b.RunParallel(func(pb *testing.PB) {
+        for pb.Next() {
+            _ = gen.Next()
+        }
+    })
 }
 
 func BenchmarkAtomicIDGen(b *testing.B) {
-	gen := &AtomicIDGen{}
-	b.RunParallel(func(pb *testing.PB) {
-		for pb.Next() {
-			_ = gen.Next()
-		}
-	})
+    gen := &AtomicIDGen{}
+    b.RunParallel(func(pb *testing.PB) {
+        for pb.Next() {
+            _ = gen.Next()
+        }
+    })
 }
 ```
 
