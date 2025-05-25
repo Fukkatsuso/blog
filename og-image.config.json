@@ -136,6 +136,15 @@
   },
   {
     "template": "og-image/base.drawio.png",
+    "path": "content/posts/read-rust-atomics-and-locks/og-image.png",
+    "title": [
+      "「詳解 ",
+      "Rust アトミック操作とロック」",
+      "を読んだ"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
     "path": "content/posts/read-rust-practice-book/og-image.png",
     "title": [
       "「Rust の練習帳」で",
