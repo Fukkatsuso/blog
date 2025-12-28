@@ -17,7 +17,7 @@ tags:
 が、ふと思い返すと、自分が使うサーバのスペックといえば EC2 の無料枠で提供されている t4g.small くらいなもので、それくらいのスペックだとできることに制限が出てきてしまうため、もう少し余裕のあるスペックのマシンを使いたいと思うようになりました。
 
 せっかくなら安いミニ PC なりラズパイなりを買っておうちサーバを運用してみたい…。
-そう思い立ったのは今年 (2025 年) の 12 月に入る直前のことで、12 月以降はメモリの高騰によって PC 価格が上がるらしいということも聞き、買うなら今のうちだと駆け込んだ感じです。
+そう思い立ったのは今年（2025 年）の 12 月に入る直前のことで、12 月以降はメモリの高騰によって PC 価格が上がるらしいということも聞き、買うなら今のうちだと駆け込んだ感じです。
 
 ミニ PC と悩んだ結果、遊びがいがありそうなラズパイに手を出すことにしました。
 
@@ -170,7 +170,7 @@ Pironman 5 MAX には、前面に取り付けた OLED ディスプレイで CPU 
 また、ファンを動かしたり光らせたりする機能もあります。
 
 これらの機能を使うためには pironman5 モジュールをインストールする必要があります。
-[公式のドキュメント](https://docs.sunfounder.com/projects/pironman5/ja/latest/pironman5_max/set_up/set_up_rpi_os.html)に従い、GPIO 電源を停止時に無効化する設定を入れ、pironman5 モジュールのダウンロードとインストールをしました。
+[公式のドキュメント](https://docs.sunfounder.com/projects/pironman5/ja/latest/pironman5_max/set_up/set_up_rpi_os.html) に従い、GPIO 電源を停止時に無効化する設定を入れ、pironman5 モジュールのダウンロードとインストールをしました。
 
 無事、ファンがゲーミングな光を発しながら回りはじめ、OLED ディスプレイも表示されるようになりました。
 
@@ -192,7 +192,7 @@ Pironman 5 MAX には、前面に取り付けた OLED ディスプレイで CPU 
 
 USB メモリから SSD へ、さっさと移行してしまいます。
 
-これも[公式の手順](https://docs.sunfounder.com/projects/pironman5/ja/latest/pironman5_max/install/copy_sd_to_nvme_rpi.html)があります。
+これも [公式の手順](https://docs.sunfounder.com/projects/pironman5/ja/latest/pironman5_max/install/copy_sd_to_nvme_rpi.html) があります。
 **MicroSD から** SSD へ OS をコピーする手順なのですが、USB メモリの場合でも SD Card Copier を使った同じ手順でコピーすることができました。
 
 コピー後、`sudo reboot` で再起動が爆速になったのを確認しました。
@@ -206,7 +206,7 @@ Pironman の組み立てミスや部品の不具合がない確証も得られ�
 
 それ以外では、リモートデスクトップの設定をしてみました。
 ラズパイ側は <https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc> あたりを読んで VNC サーバを有効化しておきます。
-mac （クライアント）側は RealVNC Viewer というツールを使うことにしました。
+mac（クライアント）側は RealVNC Viewer というツールを使うことにしました。
 
 ```sh
 brew install --cask vnc-viewer
