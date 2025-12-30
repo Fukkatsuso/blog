@@ -1,6 +1,8 @@
 {
   "plugins": {},
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "preset-ja-spacing": {
       "ja-nakaguro-or-halfwidth-space-between-katakana": false,

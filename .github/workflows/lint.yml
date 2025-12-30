@@ -39,7 +39,8 @@ jobs:
           npm install --save-dev \
             textlint \
             textlint-rule-preset-ja-spacing \
-            textlint-rule-preset-jtf-style
+            textlint-rule-preset-jtf-style \
+            textlint-filter-rule-comments
 
       - name: Run textlint
         run: npx textlint content/**/*.md README.md

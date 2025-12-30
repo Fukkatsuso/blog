@@ -96,6 +96,13 @@
   },
   {
     "template": "og-image/base.drawio.png",
+    "path": "content/posts/lookback-2025/og-image.png",
+    "title": [
+      "2025 年の振り返りと来年の目標"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
     "path": "content/posts/oauth1-twitter/og-image.png",
     "title": [
       "OAuth に入門して",
