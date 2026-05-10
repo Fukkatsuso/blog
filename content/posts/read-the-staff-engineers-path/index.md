@@ -4,6 +4,7 @@ date: 2026-05-10T21:00:00+09:00
 draft: false
 summary: "「スタッフエンジニアの道」を読み、技術スペシャリストに求められる視座・実行力・影響力について考えた記録です"
 images:
+  - posts/read-the-staff-engineers-path/og-image.png
 categories:
   - book
 tags:
