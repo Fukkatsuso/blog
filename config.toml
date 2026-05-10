@@ -1,6 +1,5 @@
 baseURL = "https://blog.fukkatsuso.com/"
 locale = "ja"
-# languageCode = "ja"
 DefaultContentLanguage = "ja"
 title = "復活草のブログ"
 theme = "hugo-notepadium"
