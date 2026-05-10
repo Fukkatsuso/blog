@@ -1,12 +1,11 @@
 baseURL = "https://blog.fukkatsuso.com/"
-languageCode = "ja"
+locale = "ja"
+# languageCode = "ja"
 DefaultContentLanguage = "ja"
 title = "復活草のブログ"
 theme = "hugo-notepadium"
 
 enableRobotsTXT = true
-
-googleAnalytics = "G-93NZETNBPJ"
 
 [markup.highlight]
 codeFences = true
@@ -24,3 +23,6 @@ use = "none"
 [params.nav]
 showCategories = true
 showTags = true
+
+[services.googleAnalytics]
+id = 'G-93NZETNBPJ'

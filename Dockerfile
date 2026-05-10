@@ -1,4 +1,4 @@
-FROM golang:1.21-bullseye
+FROM golang:1.25-bookworm
 
 RUN apt-get update && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \

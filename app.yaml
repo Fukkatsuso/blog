@@ -1,4 +1,4 @@
-runtime: go121
+runtime: go125
 
 instance_class: F1
 automatic_scaling:
