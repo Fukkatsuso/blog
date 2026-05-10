@@ -170,6 +170,14 @@
   },
   {
     "template": "og-image/base.drawio.png",
+    "path": "content/posts/read-the-staff-engineers-path/og-image.png",
+    "title": [
+      "「スタッフエンジニアの道」を読んで、",
+      "これからの働き方を考えた"
+    ]
+  },
+  {
+    "template": "og-image/base.drawio.png",
     "path": "content/posts/start-blog/og-image.png",
     "title": [
       "Hugo+GAE でブログを作った"
