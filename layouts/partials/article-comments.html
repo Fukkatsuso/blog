@@ -1,0 +1,7 @@
+{{- with site.Config.Services.Disqus.Shortname -}}
+    {{- if or (eq $.Params.comments true) (and (ne $.Params.comments false) (eq site.Params.comments.enable true)) -}}
+        <section class="article discussion">
+            {{- template "_internal/disqus.html" $ -}}
+        </section>
+    {{- end -}}
+{{- end -}}
